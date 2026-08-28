@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Chicken Hub | Fresh Halal Chicken</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f8f3;
+    color:#222;
+}
+
+/* TOP BAR */
+.topbar{
+    background:#075b2b;
+    color:white;
+    padding:10px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+/* NAVBAR */
+nav{
+    background:white;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#075b2b;
+}
+
+.logo span{
+    display:block;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#555;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#222;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:#075b2b;
+}
+
+/* HERO */
+.hero{
+    min-height:650px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:35px 6%;
+}
+
+.hero-content{
+    width:50%;
+    padding-right:30px;
+}
+
+.badge{
+    display:inline-block;
+    background:#edf6e9;
+    color:#075b2b;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:65px;
+    color:#075b2b;
+    line-height:1;
+}
+
+.hero h2{
+    font-family:Georgia,serif;
+    font-size:35px;
+    margin:10px 0 20px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+    color:#555;
+    max-width:550px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 25px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+    border:2px solid #075b2b;
+}
+
+.whatsapp{
+    background:#075b2b;
+    color:white;
+}
+
+.call{
+    color:#075b2b;
+    background:white;
+}
+
+.hero-image{
+    width:50%;
+}
+
+.hero-image img{
+    width:100%;
+    max-height:570px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* FEATURES */
+.features{
+    background:#075b2b;
+    color:white;
+    padding:35px 6%;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+    gap:20px;
+}
+
+.feature{
+    padding:10px;
+}
+
+.feature-icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.feature h3{
+    margin-bottom:5px;
+}
+
+/* SECTION */
+section{
+    padding:70px 6%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:#075b2b;
+    font-size:38px;
+    font-family:Georgia,serif;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:10px;
+}
+
+/* RATE LIST */
+.rate-image{
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
+}
+
+.rate-image img{
+    width:100%;
+    display:block;
+    border-radius:10px;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.10);
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+}
+
+.product-img{
+    height:170px;
+    background:#eef2e9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product h3{
+    color:#075b2b;
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.product p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+    color:#222;
+    margin-bottom:15px;
+}
+
+.order-btn{
+    display:block;
+    text-align:center;
+    background:#075b2b;
+    color:white;
+    text-decoration:none;
+    padding:11px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* ABOUT */
+.about{
+    background:white;
+}
+
+.about-box{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-box p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+}
+
+/* CONTACT */
+.contact{
+    background:#075b2b;
+    color:white;
+    text-align:center;
+}
+
+.contact h2{
+    font-family:Georgia,serif;
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    font-size:18px;
+    margin:10px;
+}
+
+.contact-buttons{
+    margin-top:25px;
+}
+
+.contact-buttons a{
+    display:inline-block;
+    margin:7px;
+    padding:14px 25px;
+    background:white;
+    color:#075b2b;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    background:#043b1c;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+footer p{
+    margin:6px;
+}
+
+/* FLOATING WHATSAPP */
+.float-whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+    z-index:2000;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .hero{
+        flex-direction:column;
+        padding:30px 5%;
+    }
+
+    .hero-content,
+    .hero-image{
+        width:100%;
+        padding:0;
+    }
+
+    .hero-content{
+        margin-bottom:30px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav ul{
+        gap:12px;
+        font-size:13px;
+    }
+}
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:11px;
+        padding:8px 3%;
+    }
+
+    nav{
+        padding:12px 4%;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    nav ul{
+        gap:8px;
+        font-size:11px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero h2{
+        font-size:25px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .buttons a{
+        text-align:center;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+        padding:25px 3%;
+    }
+
+    .feature-icon{
+        font-size:27px;
+    }
+
+    section{
+        padding:50px 4%;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .product-img{
+        height:120px;
+        font-size:50px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product h3{
+        font-size:16px;
+    }
+
+    .product p{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:18px;
+    }
+
+    .order-btn{
+        font-size:13px;
+        padding:9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div>📞 +92 315 2453558</div>
+    <div>🍗 Fresh Chicken Delivered Fresh</div>
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">
+        ROYAL
+        <span>CHICKEN HUB</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#rates">Rates</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">✓ 100% Fresh & Halal</div>
+
+        <h1>ROYAL</h1>
+        <h2>CHICKEN HUB</h2>
+
+        <p>
+            Fresh Halal & Hygienically Packed Chicken
+            Delivered Fresh to Your Doorstep.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn whatsapp"
+               href="https://wa.me/923152453558?text=Assalam-o-Alaikum%20Royal%20Chicken%20Hub%2C%20I%20want%20to%20place%20an%20order."
+               target="_blank">
+                💬 Order on WhatsApp
+            </a>
+
+            <a class="btn call"
+               href="tel:+923152453558">
+                📞 Call Now
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="IMG-20260826-WA0000.jpg"
+             alt="Royal Chicken Hub Fresh Chicken">
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+
+    <div class="feature">
+        <div class="feature-icon">🐔</div>
+        <h3>Premium Quality</h3>
+        <p>Fresh Chicken</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">☪️</div>
+        <h3>100% Halal</h3>
+        <p>Halal Chicken</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">❄️</div>
+        <h3>Fresh & Hygienic</h3>
+        <p>Clean Packing</p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Delivery</h3>
+        <p>Kohsar Area</p>
+    </div>
+
+</div>
+
+<!-- DAILY RATE LIST -->
+<section id="rates">
+
+    <div class="section-title">
+        <h2>Today's Rate List</h2>
+        <p>Fresh chicken prices — 1 KG</p>
+    </div>
+
+    <div class="rate-image">
+        <img src="IMG_20260826_134152.JPG"
+             alt="Royal Chicken Hub Daily Rate List">
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+
+    <div class="section-title">
+        <h2>Our Products</h2>
+        <p>Fresh & hygienically packed chicken</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Mix Cut Meat</h3>
+                <p>Net Meat 900g / Waste 100g</p>
+                <div class="price">Rs. 520 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Mix%20Cut%20Meat" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Full Leg Meat</h3>
+                <p>Fresh chicken leg meat</p>
+                <div class="price">Rs. 500 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Full%20Leg%20Meat" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Chest Meat</h3>
+                <p>Fresh chicken breast meat</p>
+                <div class="price">Rs. 570 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chest%20Meat" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Chest Boneless</h3>
+                <p>Premium boneless chest</p>
+                <div class="price">Rs. 790 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chest%20Boneless" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Leg Boneless</h3>
+                <p>Fresh boneless leg meat</p>
+                <div class="price">Rs. 790 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Leg%20Boneless" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🥩</div>
+            <div class="product-info">
+                <h3>Qeema Boneless</h3>
+                <p>Fresh chicken mince</p>
+                <div class="price">Rs. 790 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Qeema%20Boneless" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Chest Golden</h3>
+                <p>Fresh golden chest</p>
+                <div class="price">Rs. 680 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chest%20Golden" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Drumsticks</h3>
+                <p>Fresh chicken drumsticks</p>
+                <div class="price">Rs. 520 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Drumsticks" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Leg Golden</h3>
+                <p>Fresh golden leg</p>
+                <div class="price">Rs. 660 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Leg%20Golden" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Wings</h3>
+                <p>Fresh chicken wings</p>
+                <div class="price">Rs. 420 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chicken%20Wings" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍖</div>
+            <div class="product-info">
+                <h3>Liver</h3>
+                <p>Fresh chicken liver</p>
+                <div class="price">Rs. 440 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chicken%20Liver" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Gizzard</h3>
+                <p>Fresh chicken gizzard</p>
+                <div class="price">Rs. 380 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chicken%20Gizzard" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🍗</div>
+            <div class="product-info">
+                <h3>Neck</h3>
+                <p>Fresh chicken neck</p>
+                <div class="price">Rs. 270 / KG</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Chicken%20Neck" target="_blank">Order</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">🐔</div>
+            <div class="product-info">
+                <h3>Full Chicken</h3>
+                <p>Fresh whole chicken</p>
+                <div class="price">Contact Us</div>
+                <a class="order-btn" href="https://wa.me/923152453558?text=I%20want%20Full%20Chicken" target="_blank">Order</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>About Royal Chicken Hub</h2>
+    </div>
+
+    <div class="about-box">
+
+        <p>
+            Royal Chicken Hub provides fresh, halal and hygienically
+            packed chicken. Our goal is to deliver fresh quality chicken
+            directly to your doorstep in the Kohsar area.
+        </p>
+
+        <br>
+
+        <p>
+            <b>Service Area:</b> Kohsar Phase-1, Latifabad, Hyderabad
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2>Order Fresh Chicken Today</h2>
+
+    <p>📞 +92 315 2453558</p>
+
+    <p>📍 Kohsar Phase-1, Latifabad, Hyderabad</p>
+
+    <p>🕘 Order Timing: 9:00 AM to 7:00 PM</p>
+
+    <div class="contact-buttons">
+
+        <a href="https://wa.me/923152453558?text=Assalam-o-Alaikum%20Royal%20Chicken%20Hub%2C%20I%20want%20to%20place%20an%20order."
+           target="_blank">
+            💬 WhatsApp Order
+        </a>
+
+        <a href="tel:+923152453558">
+            📞 Call Now
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p><b>ROYAL CHICKEN HUB</b></p>
+
+    <p>Fresh Halal & Hygienically Packed Chicken</p>
+
+    <p>Service Only For Kohsar</p>
+
+    <p>© 2026 Royal Chicken Hub. All Rights Reserved.</p>
+
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-whatsapp"
+   href="https://wa.me/923152453558?text=Assalam-o-Alaikum%20Royal%20Chicken%20Hub%2C%20I%20want%20to%20place%20an%20order."
+   target="_blank">
+    💬
+</a>
+
+</body>
+</html>
